@@ -1,6 +1,7 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   // const [query, setQuery] = useState("");
@@ -14,8 +15,9 @@ const MoviesPage = () => {
 
   return (
     <div>
-      {/* <Toaster position="top-center" />
-      <SearchBar onSubmit={handleSearchSubmit} /> */}
+      <Toaster position="top-center" />
+      <SearchBar />
+      <MovieList />
     </div>
   );
 };

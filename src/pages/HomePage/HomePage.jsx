@@ -1,59 +1,50 @@
 import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
-import { fetchMovies } from "../../services/api";
+import { getTrendMovies } from "../../services/api";
 import { ClockLoader } from "react-spinners";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(false);
-  //   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    if (!query) return;
-
     const getMovies = async () => {
       try {
         setLoading(true);
-        const { movies: newMovies, totalPages } = await fetchMovies(
-          query,
-          page
-        );
-        setMovies((prev) => (page === 1 ? newMovies : [...prev, ...newMovies]));
-        setHasMore(page < totalPages);
+        const { results, total_pages } = await getTrendMovies(page);
+        setMovies((prev) => (page === 1 ? results : [...prev, ...results]));
+        setHasMore(page < total_pages);
       } catch (error) {
-        console.log(error);
+        console.error("Failed to load movies", error);
         setError(true);
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
     getMovies();
-  }, [query, page]);
+  }, [page]);
 
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
+  if (error) {
+    return <ErrorMessage />;
+  }
+
   return (
-    <>
-      {error ? (
-        <ErrorMessage />
-      ) : (
-        <div>
-          <MovieList movies={movies} />
-          {loading && <ClockLoader />}
-          {movies.length > 0 && hasMore && !loading && (
-            <LoadMoreBtn onClick={handleLoadMore} />
-          )}
-        </div>
+    <div>
+      <MovieList movies={movies} />
+      {loading && <ClockLoader />}
+      {movies.length > 0 && hasMore && !loading && (
+        <LoadMoreBtn onClick={handleLoadMore} />
       )}
-    </>
+    </div>
   );
 };
 

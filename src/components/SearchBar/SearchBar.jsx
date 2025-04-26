@@ -21,21 +21,19 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <header className={s.header}>
-      <Formik initialValues={{ query: "" }} onSubmit={handleSubmit}>
-        <Form className={s.form}>
-          <Field
-            className={s.input}
-            name="query"
-            type="text"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search movies"
-          />
-          <button type="submit">Search</button>
-        </Form>
-      </Formik>
-    </header>
+    <Formik initialValues={{ query: "" }} onSubmit={handleSubmit}>
+      <Form className={s.form}>
+        <Field
+          className={s.input}
+          name="query"
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search movies"
+        />
+        <button type="submit">Search</button>
+      </Form>
+    </Formik>
   );
 };
 
