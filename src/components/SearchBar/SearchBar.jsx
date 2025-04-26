@@ -27,9 +27,8 @@ const SearchBar = ({ onSubmit }) => {
           className={s.input}
           name="query"
           type="text"
-          autoComplete="off"
           autoFocus
-          placeholder="Search movies"
+          placeholder="Search movies..."
         />
         <button type="submit">Search</button>
       </Form>

@@ -4,6 +4,7 @@ import { getTrendMovies } from "../../services/api";
 import { ClockLoader } from "react-spinners";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -38,7 +39,7 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className={s.home}>
       <h2>Trending today</h2>
       <MovieList movies={movies} />
       {loading && (
