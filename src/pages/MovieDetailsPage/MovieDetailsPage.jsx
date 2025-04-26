@@ -1,14 +1,12 @@
 import React from "react";
+import s from "./MovieDetailsPage.module.css";
 
-const MovieDetailsPage = ({ src, alt }) => {
+const MovieDetailsPage = () => {
   return (
-    <div>
-      <img src={src} alt={alt} />
+    <div className={s.movie}>
+      <img />
       <div>
-        <h2>title</h2>
-        <p>Overview</p>
-        <p>Genres:</p>
-        <p>Rating:</p>
+        <h3>title</h3>
       </div>
     </div>
   );

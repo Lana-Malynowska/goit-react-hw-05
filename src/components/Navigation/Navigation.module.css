@@ -1,6 +1,7 @@
 .navigation {
   display: flex;
   gap: 1em;
+  /* border-bottom: 1px solid #646cff; */
 }
 .link {
   width: 9.6em;
