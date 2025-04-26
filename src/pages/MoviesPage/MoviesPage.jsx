@@ -6,14 +6,17 @@ import { fetchMovies } from "../../services/api";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { ClockLoader } from "react-spinners";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query") || "";
 
   useEffect(() => {
     if (!query) return;
@@ -39,7 +42,7 @@ const MoviesPage = () => {
   };
 
   const handleSearchSubmit = (searchQuery) => {
-    setQuery(searchQuery);
+    setSearchParams({ query: searchQuery });
     setPage(1);
     setHasMore(true);
     setError(false);

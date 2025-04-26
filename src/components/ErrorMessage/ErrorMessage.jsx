@@ -1,7 +1,7 @@
 const ErrorMessage = () => {
   return (
     <div>
-      <p>Ooops... Something went wrong! Please try to reload this page</p>
+      <p>Ooops... Something went wrong! Please try again later</p>
     </div>
   );
 };

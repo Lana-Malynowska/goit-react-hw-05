@@ -16,8 +16,13 @@
   transition: border-color 0.25s;
 }
 
+.link:hover {
+  border-color: #646cff;
+}
+
 .active {
   border-color: #646cff;
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
