@@ -10,7 +10,7 @@ const MovieList = ({ movies }) => {
       {movies.map((movie) => {
         const posterUrl = movie.poster_path
           ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-          : "https://via.placeholder.com/500x750?text=No+Image";
+          : "https://placehold.co/500x750?text=No+Image&font=roboto";
 
         return (
           <li key={movie.id}>

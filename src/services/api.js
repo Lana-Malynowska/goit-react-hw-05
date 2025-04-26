@@ -19,3 +19,23 @@ export const getTrendMovies = async (page = 1) => {
 
   return response.data;
 };
+
+export const fetchMovies = async (query, page = 1) => {
+  const response = await axios.get(
+    "https://api.themoviedb.org/3/search/movie",
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+      params: {
+        query,
+        page,
+        include_adult: false,
+        language: "en-US",
+      },
+    }
+  );
+
+  return response.data;
+};

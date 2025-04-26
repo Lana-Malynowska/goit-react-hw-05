@@ -41,7 +41,15 @@ const HomePage = () => {
     <div>
       <h2>Trending today</h2>
       <MovieList movies={movies} />
-      {loading && <ClockLoader />}
+      {loading && (
+        <ClockLoader
+          color="#646cffaa"
+          size={50}
+          cssOverride={{
+            margin: "0 auto",
+          }}
+        />
+      )}
       {movies.length > 0 && hasMore && !loading && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
