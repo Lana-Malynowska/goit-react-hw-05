@@ -1,10 +1,19 @@
+import clsx from "clsx";
 import React from "react";
+import { NavLink } from "react-router-dom";
+import s from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
+  const setActiveClass = ({ isActive }) => {
+    return clsx(s.link, isActive && s.active);
+  };
+
   return (
-    <div>
+    <div className={s.notfound}>
       <h2>Page is not found...</h2>
-      <a href="/src/pages/HomePage">Return to main page</a>
+      <NavLink to="/" className={setActiveClass}>
+        Return to main page
+      </NavLink>
     </div>
   );
 };
