@@ -42,7 +42,11 @@ const MovieCast = () => {
     return <ErrorMessage />;
   }
 
-  if (!cast) return null;
+  if (!cast || cast.length === 0) {
+    return (
+      <p className={s.noInfo}>No cast information available... Stay tuned!</p>
+    );
+  }
 
   return (
     <ul className={s.cast}>

@@ -33,3 +33,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.noInfo {
+  text-align: center;
+  margin-top: 1em;
+  color: #646cff;
+}

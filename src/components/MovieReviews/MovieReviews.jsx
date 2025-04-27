@@ -42,7 +42,11 @@ const MovieReviews = () => {
     return <ErrorMessage />;
   }
 
-  if (!reviews) return null;
+  if (!reviews || reviews.length === 0) {
+    return (
+      <p className={s.noInfo}>No reviews yet... Be the first to leave one!</p>
+    );
+  }
 
   return (
     <ul className={s.reviews}>

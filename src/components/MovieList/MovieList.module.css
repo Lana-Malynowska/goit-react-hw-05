@@ -29,6 +29,11 @@
   color: #646cff;
 }
 
+.noInfo {
+  margin-top: 1em;
+  color: #646cff;
+}
+
 @media (max-width: 480px) {
   .poster {
     height: 200px;
