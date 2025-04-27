@@ -20,8 +20,7 @@ const HomePage = () => {
         const { results, total_pages } = await getTrendMovies(page);
         setMovies((prev) => (page === 1 ? results : [...prev, ...results]));
         setHasMore(page < total_pages);
-      } catch (error) {
-        console.error("Failed to load movies", error);
+      } catch {
         setError(true);
       } finally {
         setLoading(false);
@@ -44,7 +43,7 @@ const HomePage = () => {
       <MovieList movies={movies} />
       {loading && (
         <ClockLoader
-          color="#646cffaa"
+          color="#646cff"
           size={50}
           cssOverride={{
             margin: "0 auto",

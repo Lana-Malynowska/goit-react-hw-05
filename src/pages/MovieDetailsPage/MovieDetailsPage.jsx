@@ -25,8 +25,7 @@ const MovieDetailsPage = () => {
         setLoading(true);
         const data = await fetchMovieDetails(movieId);
         setMovie(data);
-      } catch (error) {
-        console.error("error loading movie:", error);
+      } catch {
         setError(true);
       } finally {
         setLoading(false);
@@ -39,7 +38,7 @@ const MovieDetailsPage = () => {
   if (loading) {
     return (
       <ClockLoader
-        color="#646cffaa"
+        color="#646cff"
         size={50}
         cssOverride={{
           margin: "0 auto",

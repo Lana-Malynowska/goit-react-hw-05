@@ -5,15 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 const MovieList = ({ movies }) => {
   const location = useLocation();
 
-  if (!movies || movies.length === 0) {
-    return (
-      <p className={s.noInfo}>
-        <strong>
-          Oops! No matches found for your search... Try something else!
-        </strong>
-      </p>
-    );
-  }
+  if (!movies || movies.length === 0) return null;
 
   return (
     <ul className={s.movies}>

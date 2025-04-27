@@ -29,7 +29,7 @@ const MovieCast = () => {
   if (loading) {
     return (
       <ClockLoader
-        color="#646cffaa"
+        color="#646cff"
         size={50}
         cssOverride={{
           margin: "0 auto",
@@ -44,7 +44,7 @@ const MovieCast = () => {
 
   if (!cast || cast.length === 0) {
     return (
-      <p className={s.noInfo}>No cast information available... Stay tuned!</p>
+      <p className={s.message}>No cast information available... Stay tuned!</p>
     );
   }
 

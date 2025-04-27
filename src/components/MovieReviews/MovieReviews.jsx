@@ -29,7 +29,7 @@ const MovieReviews = () => {
   if (loading) {
     return (
       <ClockLoader
-        color="#646cffaa"
+        color="#646cff"
         size={50}
         cssOverride={{
           margin: "0 auto",
@@ -44,7 +44,7 @@ const MovieReviews = () => {
 
   if (!reviews || reviews.length === 0) {
     return (
-      <p className={s.noInfo}>No reviews yet... Be the first to leave one!</p>
+      <p className={s.message}>No reviews yet... Be the first to leave one!</p>
     );
   }
 
