@@ -67,3 +67,17 @@ export const fetchMovieReviews = async (movieId) => {
 
   return response.data;
 };
+
+export const fetchMovieCast = async (movieId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+    }
+  );
+
+  return response.data;
+};
