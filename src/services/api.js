@@ -53,3 +53,17 @@ export const fetchMovieDetails = async (movieId) => {
 
   return response.data;
 };
+
+export const fetchMovieReviews = async (movieId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+    }
+  );
+
+  return response.data;
+};

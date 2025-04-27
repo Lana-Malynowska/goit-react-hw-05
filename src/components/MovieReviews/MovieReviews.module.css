@@ -1,0 +1,30 @@
+.reviews {
+  padding: 0.6em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  border-bottom: 1px solid #646cff;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+}
+
+.filledStar {
+  color: gold;
+}
+
+.emptyStar {
+  color: lightgrey;
+}
+
+.content {
+  padding-bottom: 0.6em;
+}

@@ -17,6 +17,7 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const backLink = location.state?.from || "/movies";
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -59,11 +60,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={s.movie}>
-      <button
-        type="button"
-        className={s.link}
-        onClick={() => navigate(location.state?.from ?? "/movies")}
-      >
+      <button className={s.link} onClick={() => navigate(backLink)}>
         Go back
       </button>
       <div className={s.card}>
@@ -87,10 +84,10 @@ const MovieDetailsPage = () => {
       <div>
         <h4>Additional info</h4>
         <nav className={s.links}>
-          <NavLink to="cast" className={s.link}>
+          <NavLink to="cast" state={{ from: backLink }} className={s.link}>
             Cast
           </NavLink>
-          <NavLink to="reviews" className={s.link}>
+          <NavLink to="reviews" state={{ from: backLink }} className={s.link}>
             Reviews
           </NavLink>
         </nav>
